@@ -1,0 +1,113 @@
+.detail-card {
+    max-width: 800px;
+    background-color: #ffffff;
+    border: 1px solid var(--slate-200);
+    border-radius: 14px;
+    padding: 32px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+}
+
+.detail-header {
+    display: flex;
+    gap: 24px;
+    align-items: flex-start;
+    border-bottom: 1px solid var(--slate-200);
+    padding-bottom: 24px;
+    margin-bottom: 24px;
+}
+
+.detail-img {
+    width: 120px;
+    height: 120px;
+    object-fit: cover;
+    border-radius: 12px;
+    border: 1px solid var(--slate-200);
+}
+
+.detail-img-placeholder {
+    width: 120px;
+    height: 120px;
+    border-radius: 12px;
+    background: var(--slate-100);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--slate-400);
+    font-size: 3rem;
+}
+
+.detail-info {
+    flex: 1;
+}
+
+.detail-category {
+    font-size: 0.8rem;
+    color: var(--slate-400);
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.detail-title {
+    font-size: 1.5rem;
+    font-weight: 800;
+    color: var(--slate-900);
+    margin: 4px 0;
+}
+
+.detail-subtitle {
+    font-size: 0.95rem;
+    color: var(--slate-500);
+}
+
+.barcode-tag {
+    display: inline-block;
+    margin-top: 10px;
+    font-family: monospace;
+    font-size: 0.9rem;
+    font-weight: 700;
+    color: #4f46e5;
+    background: #eef2ff;
+    padding: 4px 10px;
+    border-radius: 6px;
+    border: 1px solid #e0e7ff;
+}
+
+.spec-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 16px;
+    margin-bottom: 30px;
+}
+
+.spec-box {
+    background-color: var(--slate-50);
+    padding: 16px 20px;
+    border-radius: 10px;
+    border: 1px solid var(--slate-200);
+}
+
+.spec-label {
+    font-size: 0.75rem;
+    color: var(--slate-500);
+    font-weight: 700;
+    text-transform: uppercase;
+}
+
+.spec-val {
+    font-size: 1.35rem;
+    font-weight: 800;
+    color: var(--slate-900);
+    margin-top: 4px;
+}
+
+.spec-val.cost { color: var(--slate-600); }
+.spec-val.warning { color: var(--warning); }
+.spec-val.danger { color: var(--danger); }
+.spec-val.success { color: var(--success); }
+
+.detail-actions {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
