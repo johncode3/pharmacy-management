@@ -6,7 +6,6 @@
 @endsection
 
 @section('content')
-=
     <div class="kpi-grid">
         <div class="kpi-card">
             <div>

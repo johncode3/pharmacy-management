@@ -62,10 +62,22 @@
             </nav>
         </div>
 
-        <div class="sidebar-footer">
-            <div>
-                <div class="user-name">{{ auth()->user()->name }}</div>
+        <div class="sidebar-footer" style="display: flex; align-items: center; justify-content: space-between; padding: 16px 20px; border-top: 1px solid var(--slate-800);">
+
+        <a href="{{ route('profile.edit') }}" style="text-decoration: none; flex: 1; min-width: 0; margin-right: 10px;" title="View & Edit Profile">
+            <div class="user-name" style="color: #ffffff; font-size: 0.88rem; font-weight: 600; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">
+                {{ auth()->user()->name }}
             </div>
+            <div style="font-size: 0.75rem; color: var(--slate-400); white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">
+                {{ auth()->user()->email }}
+            </div>
+        </a>
+>
+        <div style="display: flex; align-items: center; gap: 8px;">
+            <a href="{{ route('profile.edit') }}" class="btn-logout" title="Profile Settings" style="color: var(--slate-400); text-decoration: none; display: flex; align-items: center;">
+                <i class="bi bi-person-gear"></i>
+            </a>
+
             <form method="POST" action="{{ route('logout') }}">
                 @csrf
                 <button type="submit" class="btn-logout" title="Log Out">
@@ -73,6 +85,8 @@
                 </button>
             </form>
         </div>
+
+    </div>
     </aside>
 
     <div class="main-wrapper">
