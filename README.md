@@ -16,6 +16,24 @@ PharmaCare is a Laravel-based pharmacy management and point-of-sale application.
 - Profile update, password update, logout, and password reset flows.
 - Public registration is disabled; the demo staff accounts are created by the application seeder.
 
+## 📸 Application Screenshots
+
+### 1. Executive Analytics Dashboard
+![Executive Dashboard](docs/screenshots/dashboard.png)
+C:\Users\HP\Desktop\BBU\Year3\Year3Semester1\AdvancePHP\Project\pharmacy_management\doc\screenshots\dashboard.png
+
+### 2. Point of Sale (POS) Cashier Engine
+![Point of Sale](docs/screenshots/pos.png)
+
+### 3. Medicine Inventory & Expiry Management
+![Medicine Inventory](docs/screenshots/medicines.png)
+
+### 4. Printable Thermal Invoice Receipt
+![Invoice Receipt](docs/screenshots/receipt.png)
+
+### 5. Staff Authentication (Corporate Slate Theme)
+![Staff Login](docs/screenshots/login.png)
+
 ## Staff Access
 
 The database seeder creates these demo accounts. The default password for each account is `password`. Change the password to your own strong password immediately after the first login.
