@@ -44,7 +44,6 @@ class Medicine extends Model
         return $this->hasMany(SaleItem::class);
     }
 
-    // Expiry & Stock Business Rules
     public function isExpired(): bool
     {
         return $this->expiry_date->isPast() || $this->expiry_date->isToday();

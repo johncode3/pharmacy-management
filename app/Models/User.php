@@ -37,7 +37,6 @@ class User extends Authenticatable
         return $this->hasMany(Sale::class);
     }
 
-    // Role helper methods
     public function isAdmin(): bool
     {
         return $this->role === 'admin';

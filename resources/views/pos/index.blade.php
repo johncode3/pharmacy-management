@@ -102,10 +102,7 @@
 @section('content')
 
 <div class="pos-layout">
-
-    <!-- LEFT: Medicine Catalog -->
     <div>
-        <!-- Search & Filter Bar -->
         <div class="page-action-bar">
             <form method="GET" action="{{ route('pos.index') }}" style="display: flex; gap: 10px; width: 100%;">
                 <div class="search-box" style="flex: 1;">
@@ -121,7 +118,6 @@
             </form>
         </div>
 
-        <!-- Medicine Cards Grid -->
         <div class="medicine-grid">
             @forelse($medicines as $med)
                 <div class="med-card" onclick="addToCart({{ $med->id }}, '{{ addslashes($med->name) }}', {{ $med->price }}, {{ $med->stock_quantity }})">
@@ -157,12 +153,11 @@
             @endforelse
         </div>
 
-        <div style="margin-top: 20px;">
-            {{ $medicines->links() }}
+        <div class="pagination-container">
+            {{ $medicines->withQueryString()->links() }}
         </div>
     </div>
 
-    <!-- RIGHT: Cashier Cart -->
     <div class="cart-box">
         <form action="{{ route('pos.checkout') }}" method="POST" id="checkout-form" onsubmit="return clearCartOnSubmit()">
             @csrf

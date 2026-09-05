@@ -93,9 +93,9 @@
             </tbody>
         </table>
     </div>
-
-    <div style="margin-top: 20px;">
-        {{ $sales->links() }}
+    
+    <div class="pagination-container">
+        {{ $sales->withQueryString()->links() }}
     </div>
 
 @endsection

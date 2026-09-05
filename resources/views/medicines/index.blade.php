@@ -1,8 +1,6 @@
 @extends('layouts.pharmacy')
-
 @section('title', 'Medicine Inventory')
 @section('page-title', 'Medicine Inventory')
-
 @section('extra-css')
     <link rel="stylesheet" href="{{ asset('assets/css/dashboard.css') }}">
     <link rel="stylesheet" href="{{ asset('assets/css/index.css') }}">
@@ -156,6 +154,9 @@
                 @endforelse
             </tbody>
         </table>
+    </div>
+    <div class="pagination-container">
+        {{ $medicines->withQueryString()->links() }}
     </div>
 
 @endsection

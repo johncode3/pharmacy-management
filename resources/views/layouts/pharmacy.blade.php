@@ -17,7 +17,7 @@
         <div>
 
             <div class="sidebar-logo">
-                <i class="bi bi-capsule-pill"></i>
+                <img src="{{ asset('assets/images/PharmacyLogo.png') }}" alt="PharmaCare Logo" style="width: 32px; height: 32px; border-radius: 6px;">
                 <span>PharmaCare</span>
             </div>
 
@@ -72,7 +72,7 @@
                 {{ auth()->user()->email }}
             </div>
         </a>
->
+
         <div style="display: flex; align-items: center; gap: 8px;">
             <a href="{{ route('profile.edit') }}" class="btn-logout" title="Profile Settings" style="color: var(--slate-400); text-decoration: none; display: flex; align-items: center;">
                 <i class="bi bi-person-gear"></i>

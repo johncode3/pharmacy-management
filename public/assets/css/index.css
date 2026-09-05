@@ -98,3 +98,80 @@
 
 .btn-icon.edit:hover   { background: #dbeafe; }
 .btn-icon.delete:hover { background: #fee2e2; }
+
+.pagination-container {
+    margin-top: 24px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.pagination-container nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    flex-wrap: wrap;
+    gap: 16px;
+}
+
+.pagination-container nav > div:first-child {
+    display: none;
+}
+
+.pagination-container nav > div:last-child {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+}
+
+.pagination-container p {
+    font-size: 0.85rem;
+    color: var(--slate-500);
+    margin: 0;
+}
+
+.pagination-container p span {
+    font-weight: 700;
+    color: var(--slate-900);
+}
+
+.pagination-container span[aria-current="page"] span,
+.pagination-container a {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 34px;
+    height: 34px;
+    padding: 0 10px;
+    border-radius: 8px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    text-decoration: none;
+    transition: all 0.2s;
+}
+
+.pagination-container a {
+    background: #ffffff;
+    border: 1px solid var(--slate-200);
+    color: var(--slate-700);
+}
+
+.pagination-container a:hover {
+    background: var(--slate-100);
+    border-color: var(--slate-300);
+    color: var(--slate-900);
+}
+
+.pagination-container span[aria-current="page"] span {
+    background-color: var(--slate-900);
+    color: #ffffff;
+    border: 1px solid var(--slate-900);
+}
+
+.pagination-container svg {
+    width: 14px;
+    height: 14px;
+    fill: currentColor;
+}
