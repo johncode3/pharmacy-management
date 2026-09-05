@@ -1,58 +1,178 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+# PharmaCare - Pharmacy Management and POS System
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+PharmaCare is a Laravel-based pharmacy management and point-of-sale application. It manages medicine categories, inventory, expiry dates, stock levels, cashier sales, and printable receipts through a role-protected staff portal.
 
-## About Laravel
+## Features
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+- Role-based access for Admin, Pharmacist, and Cashier staff.
+- Inventory management for medicine categories and medicines.
+- Medicine search, category filtering, pagination, stock status, expiry status, and image support.
+- POS checkout with customer details, payment method, paid amount, and change calculation.
+- Stock validation and pessimistic row locking during checkout to protect inventory during concurrent sales.
+- Server-side validation for checkout, inventory, profiles, and authentication forms.
+- Expired medicines are blocked from POS sales.
+- Dashboard statistics for revenue, today's sales, low stock, and expired medicines.
+- Printable sales receipts using print-specific CSS.
+- Profile update, password update, logout, and password reset flows.
+- Public registration is disabled; the demo staff accounts are created by the application seeder.
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+## Staff Access
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+The database seeder creates these demo accounts. The default password for each account is `123456`.
 
-## Learning Laravel
+| Role | Email | Access |
+| --- | --- | --- |
+| Admin | `admin@pharmacy.com` | Dashboard, inventory, POS, sales, and full access |
+| Pharmacist | `pharmacist@pharmacy.com` | Dashboard, categories, and medicine inventory |
+| Cashier | `cashier@pharmacy.com` | Dashboard, POS checkout, and sales |
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+Change or remove these demo credentials before deploying the application to a real environment.
 
-In addition, [Laracasts](https://laracasts.com) contains thousands of video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+## Technology Stack
 
-You can also watch bite-sized lessons with real-world projects on [Laravel Learn](https://laravel.com/learn), where you will be guided through building a Laravel application from scratch while learning PHP fundamentals.
+- Backend: Laravel 13
+- Runtime: PHP 8.3 or newer
+- Database: MySQL
+- Frontend: Laravel Blade and custom CSS
+- Authentication: Laravel Breeze components customized for the staff portal
+- Icons: Bootstrap Icons loaded from the Bootstrap Icons CDN
+- Build tools: Vite, npm, and Tailwind CSS packages included in the project
 
-## Agentic Development
+## Core Database Tables
 
-Laravel's predictable structure and conventions make it ideal for AI coding agents like Claude Code, Cursor, and GitHub Copilot. Install [Laravel Boost](https://laravel.com/docs/ai) to supercharge your AI workflow:
+The application-specific database schema contains five main tables:
+
+1. `users` - Staff accounts and role attributes.
+2. `categories` - Medicine classifications.
+3. `medicines` - Medicine names, barcodes, prices, costs, stock, expiry dates, images, and statuses.
+4. `sales` - Sale invoices, customer details, payment information, totals, and cashier ownership.
+5. `sale_items` - Quantities, historical unit prices, and subtotals for each sale.
+
+Laravel also creates framework tables for cache, queued jobs, and sessions according to the configured database setup.
+
+## Requirements
+
+- PHP 8.3+
+- Composer
+- Node.js and npm
+- MySQL
+- PHP extensions required by Laravel 13
+
+## Installation
+
+### 1. Clone the project
 
 ```bash
-composer require laravel/boost --dev
-
-php artisan boost:install
+git clone https://github.com/johncode3/pharmacy-management.git
+cd pharmacy-management
 ```
 
-Boost provides your agent 15+ tools and skills that help agents build Laravel applications while following best practices.
+### 2. Install PHP dependencies
 
-## Contributing
+```bash
+composer install
+```
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+### 3. Configure the environment
 
-## Code of Conduct
+Windows PowerShell:
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+```powershell
+Copy-Item .env.example .env
+php artisan key:generate
+```
 
-## Security Vulnerabilities
+Configure the database values in `.env`:
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+```dotenv
+DB_CONNECTION=mysql
+DB_HOST=127.0.0.1
+DB_PORT=3306
+DB_DATABASE=pharmacy_management
+DB_USERNAME=root
+DB_PASSWORD=
+```
 
-## License
+Create the `pharmacy_management` database in MySQL before running the migrations.
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+### 4. Install frontend dependencies and build assets
+
+```bash
+npm install
+npm run build
+```
+
+### 5. Run migrations and seed demo data
+
+The seeder creates three staff accounts, five categories, and 25 medicines.
+
+```bash
+php artisan migrate:fresh --seed
+```
+
+Use `migrate:fresh --seed` only in a development environment because it deletes existing database tables and data.
+
+### 6. Link public storage
+
+```bash
+php artisan storage:link
+```
+
+This makes uploaded medicine images available through the public storage path.
+
+### 7. Start the application
+
+```bash
+php artisan serve
+```
+
+Open [http://127.0.0.1:8000](http://127.0.0.1:8000) in a browser.
+
+For frontend development with Vite, run this in a second terminal:
+
+```bash
+npm run dev
+```
+
+## Useful Commands
+
+```bash
+# Run the test suite
+php artisan test
+
+# Check available Artisan commands
+php artisan list
+
+# Format PHP code with Laravel Pint
+vendor/bin/pint
+```
+
+## Access Rules
+
+- All dashboard and profile routes require authentication.
+- Admins and Pharmacists can manage categories and medicines.
+- Admins and Cashiers can access the POS and sales history.
+- Expired medicines cannot be added to a completed sale.
+- Public staff registration is not available.
+
+## Project Structure
+
+```text
+app/                    Application controllers, models, requests, and middleware
+database/migrations/    Database schema
+database/seeders/       Demo users, categories, and medicines
+public/assets/css/      Custom application stylesheets
+resources/views/        Blade pages and components
+routes/                 Web and authentication routes
+storage/app/public/     Publicly stored medicine images
+```
+
+## Security Notes
+
+This project is configured for local development and demonstration. Before production use:
+
+- Replace all demo passwords.
+- Set `APP_ENV=production` and `APP_DEBUG=false`.
+- Configure secure database credentials and HTTPS.
+- Review upload validation and filesystem permissions.
+- Set up backups and a production queue, cache, and session configuration.
