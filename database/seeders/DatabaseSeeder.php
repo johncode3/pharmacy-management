@@ -20,21 +20,21 @@ class DatabaseSeeder extends Seeder
         User::create([
             'name' => 'Admin Owner',
             'email' => 'admin@pharmacy.com',
-            'password' => Hash::make('123456'),
+            'password' => Hash::make('password'),
             'role' => 'admin',
         ]);
 
         User::create([
             'name' => 'Lead Pharmacist',
             'email' => 'pharmacist@pharmacy.com',
-            'password' => Hash::make('123456'),
+            'password' => Hash::make('password'),
             'role' => 'pharmacist',
         ]);
 
         User::create([
             'name' => 'POS Cashier',
             'email' => 'cashier@pharmacy.com',
-            'password' => Hash::make('123456'),
+            'password' => Hash::make('password'),
             'role' => 'cashier',
         ]);
 

@@ -18,7 +18,7 @@ PharmaCare is a Laravel-based pharmacy management and point-of-sale application.
 
 ## Staff Access
 
-The database seeder creates these demo accounts. The default password for each account is `123456`.
+The database seeder creates these demo accounts. The default password for each account is `password`. Change the password to your own strong password immediately after the first login.
 
 | Role | Email | Access |
 | --- | --- | --- |
@@ -26,7 +26,7 @@ The database seeder creates these demo accounts. The default password for each a
 | Pharmacist | `pharmacist@pharmacy.com` | Dashboard, categories, and medicine inventory |
 | Cashier | `cashier@pharmacy.com` | Dashboard, POS checkout, and sales |
 
-Change or remove these demo credentials before deploying the application to a real environment.
+Never use the seeded `password` credential in a public or production deployment. Change or remove these demo credentials before deploying the application to a real environment.
 
 ## Technology Stack
 
