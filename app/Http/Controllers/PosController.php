@@ -35,7 +35,7 @@ class PosController extends Controller
                 return $query->where('category_id', $categoryId);
             })
             ->latest()
-            ->paginate(12)
+            ->paginate(15)
             ->withQueryString();
 
         return view('pos.index', compact('medicines', 'categories', 'search', 'categoryId'));

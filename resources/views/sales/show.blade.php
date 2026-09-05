@@ -29,7 +29,7 @@
 <div class="receipt-card" style="max-width: 650px; margin: 0 auto; background: #ffffff; border: 1px solid var(--slate-200); border-radius: 14px; padding: 32px; box-shadow: 0 1px 3px rgba(0,0,0,0.05);">
 
     <div style="text-align: center; border-bottom: 1px dashed var(--slate-200); padding-bottom: 20px; margin-bottom: 20px;">
-        <i class="bi bi-capsule-pill" style="font-size: 2.2rem; color: #059669;"></i>
+        <img src="{{ asset('assets/images/PharmacyLogo.png') }}" alt="PharmaCare Logo" class="login-logo" style="width: 100px; height: 100px; object-fit: cover; margin-bottom: 6px;">
         <h2 style="font-size: 1.3rem; font-weight: 800; color: var(--slate-900); margin: 6px 0 2px;">PharmaCare Pharmacy</h2>
         <p style="font-size: 0.8rem; color: var(--slate-500);">Phnom Penh, Cambodia | Tel: +855 12 345 678</p>
     </div>

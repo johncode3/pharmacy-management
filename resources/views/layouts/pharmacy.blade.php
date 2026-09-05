@@ -19,7 +19,7 @@
             <div class="sidebar-logo">
                 <img src="{{ asset('assets/images/PharmacyLogo.png') }}" alt="PharmaCare Logo" style="width: 32px; height: 32px; border-radius: 6px;">
                 <span>PharmaCare</span>
-            </div>
+            </div>  
 
             <div class="user-badge-box">
                 <span>Role:</span>

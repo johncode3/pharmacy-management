@@ -16,11 +16,10 @@ PharmaCare is a Laravel-based pharmacy management and point-of-sale application.
 - Profile update, password update, logout, and password reset flows.
 - Public registration is disabled; the demo staff accounts are created by the application seeder.
 
-## 📸 Application Screenshots
+## Application Screenshots
 
 ### 1. Executive Analytics Dashboard
 ![Executive Dashboard](docs/screenshots/dashboard.png)
-C:\Users\HP\Desktop\BBU\Year3\Year3Semester1\AdvancePHP\Project\pharmacy_management\doc\screenshots\dashboard.png
 
 ### 2. Point of Sale (POS) Cashier Engine
 ![Point of Sale](docs/screenshots/pos.png)
